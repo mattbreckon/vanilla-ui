@@ -1,4 +1,4 @@
-kui
+vanilla-ui
 ==============================================================================
 
 [Short description of the addon.]
@@ -7,7 +7,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install kui
+ember install vanilla-ui
 ```
 
 
@@ -23,7 +23,7 @@ Contributing
 ### Installation
 
 * `git clone <repository-url>`
-* `cd kui`
+* `cd vanilla-ui`
 * `npm install`
 
 ### Linting
