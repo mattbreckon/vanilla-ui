@@ -1,61 +1,30 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
-const { inject } = Ember;
+const colorPalette = {
+  'primary': {
+    'name': 'black',
+    'base': '#000'
+  },
+  'white': {
+    'name': 'white',
+    'base': '#fff'
+  },
+};
 
 export default FreestyleController.extend({
-  emberFreestyle: inject.service(),
+  //----------------------------------------
+  // Dependencies
+  //----------------------------------------
 
-  /* BEGIN-FREESTYLE-USAGE fp--notes
-### A few notes regarding freestyle-palette
+  emberFreestyle: service(),
 
-- Accepts a colorPalette POJO like the one found in the freestyle.js blueprint controller
-- Looks very nice
+  //----------------------------------------
+  // Hooks
+  //----------------------------------------
 
-And another thing...
-
-###### Markdown note demonstrating prettified code
-
-```
-import Ember from 'ember';
-
-export default Ember.Component.extend({
-  // ...
-  colorPalette: {
-    'primary': {
-      'name': 'cyan',
-      'base': '#00bcd4'
-    },
-    'accent': {
-      'name': 'amber',
-      'base': '#ffc107'
-    }
-  }
-  // ...
-});
-```
-  END-FREESTYLE-USAGE */
-
-  colorPalette: {
-    'primary': {
-      'name': 'cyan',
-      'base': '#00bcd4'
-    },
-    'accent': {
-      'name': 'amber',
-      'base': '#ffc107'
-    },
-    'secondary': {
-      'name': 'greyish',
-      'base': '#b6b6b6'
-    },
-    'foreground': {
-      'name': 'blackish',
-      'base': '#212121'
-    },
-    'background': {
-      'name': 'white',
-      'base': '#ffffff'
-    }
-  }
+  init() {
+    this._super(...arguments);
+    this.set('colorPalette', colorPalette);
+  },
 });
