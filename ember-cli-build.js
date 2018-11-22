@@ -3,8 +3,10 @@
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
-  let app = new EmberAddon(defaults, {
-    // Add options here
+  const app = new EmberAddon(defaults, {
+    freestyle: {
+      snippetSearchPaths: ['tests/dummy/app'],
+    },
   });
 
   /*
@@ -13,6 +15,8 @@ module.exports = function(defaults) {
     This build file does *not* influence how the addon or the app using it
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
+
+  app.import('vendor/highlight/styles/monokai-sublime.css');
 
   return app.toTree();
 };
