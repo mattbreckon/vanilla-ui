@@ -2,13 +2,13 @@ import { inject as service } from '@ember/service';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
 const colorPalette = {
-  'primary': {
-    'name': 'black',
-    'base': '#000'
+  primary: {
+    name: 'black',
+    base: '#000',
   },
-  'white': {
-    'name': 'white',
-    'base': '#fff'
+  white: {
+    name: 'white',
+    base: '#fff',
   },
 };
 

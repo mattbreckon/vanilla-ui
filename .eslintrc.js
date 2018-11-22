@@ -8,13 +8,19 @@ module.exports = {
     'ember'
   ],
   extends: [
-    'eslint:recommended',
+    'airbnb-base',
     'plugin:ember/recommended'
   ],
   env: {
     browser: true
   },
   rules: {
+    'indent': ['error', 2, { SwitchCase: 1 }],
+    'import/no-unresolved': 0,
+    'import/no-extraneous-dependencies': 0,
+    'no-underscore-dangle': 0,
+    'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
+    'prefer-rest-params': 0,
   },
   overrides: [
     // node files
