@@ -1,9 +1,12 @@
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+const environment = process.env.EMBER_ENV;
+const blacklist = environment === 'production' ? ['ember-freestyle'] : [];
 
 module.exports = function(defaults) {
   const app = new EmberAddon(defaults, {
+    blacklist,
     freestyle: {
       snippetSearchPaths: ['tests/dummy/app'],
     },
