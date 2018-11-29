@@ -15,11 +15,15 @@ module.exports = {
     browser: true
   },
   rules: {
-    'indent': ['error', 2, { SwitchCase: 1 }],
+    'func-names': 0,
     'import/no-unresolved': 0,
-    'import/no-extraneous-dependencies': 0,
+    'indent': ['error', 2, { SwitchCase: 1 }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-param-reassign': 0,
+    'no-plusplus': 0,
     'no-underscore-dangle': 0,
     'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
+    'prefer-arrow-callback': 0,
     'prefer-rest-params': 0,
   },
   overrides: [
