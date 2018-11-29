@@ -41,7 +41,7 @@ Contributing
 ### Running the dummy application
 
 * `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+* Visit the dummy application at [http://localhost:4202/freestyle](http://localhost:4202/freestyle).
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
