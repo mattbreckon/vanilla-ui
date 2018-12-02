@@ -1,4 +1,5 @@
 import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
 const colorPalette = {
@@ -27,4 +28,32 @@ export default FreestyleController.extend({
     this._super(...arguments);
     this.set('colorPalette', colorPalette);
   },
+
+  //----------------------------------------
+  // Computed Properties
+  //----------------------------------------
+
+  dynamicProperties: computed(function () {
+    return {
+      theme: {
+        value: 'stacked',
+        inputType: 'select',
+        options: [
+          'stacked',
+          'bullet',
+          'number',
+          'inline',
+          'inline-block',
+          'comma',
+        ],
+      },
+      margin: {
+        value: undefined,
+        inputType: 'select',
+        options: [
+          '', '0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50',
+        ],
+      },
+    };
+  }),
 });
