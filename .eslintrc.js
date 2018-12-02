@@ -25,6 +25,8 @@ module.exports = {
     'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
     'prefer-arrow-callback': 0,
     'prefer-rest-params': 0,
+
+    'ember/use-brace-expansion': 0,
   },
   overrides: [
     // node files

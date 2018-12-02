@@ -3,8 +3,8 @@ import { computed } from '@ember/object';
 import layout from '../templates/components/ui-list';
 
 const themes = {
-  stacked: ['stacked', 'bullet', 'number'],
   inline: ['inline', 'inline-block', 'comma'],
+  stacked: ['stacked', 'bullet', 'number'],
 };
 
 export default Component.extend({
@@ -35,7 +35,7 @@ export default Component.extend({
   // Computed Properties
   //----------------------------------------
 
-  allThemes: computed.union('themes.stacked', 'themes.inline'),
+  allThemes: computed.union('themes.inline', 'themes.stacked'),
 
   marginPrefix: computed('theme', 'themes.stacked', function () {
     if (this.get('themes.stacked').includes(this.get('theme'))) {
