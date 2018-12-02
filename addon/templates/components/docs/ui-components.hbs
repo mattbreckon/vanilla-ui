@@ -1,0 +1,21 @@
+{{#freestyle-section name="Components" as |section|}}
+  {{#section.subsection name="Lists"}}
+    {{#freestyle-dynamic
+      "ui-list"
+      dynamicProperties=dynamicProperties
+      title="ui-list"
+      componentName="ui-list"
+    as |dynamic|
+    }}
+      {{#ui-list
+        theme=dynamic.theme
+        margin=dynamic.margin
+      }}
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+      {{/ui-list}}
+    {{/freestyle-dynamic}}
+  {{/section.subsection}}
+{{/freestyle-section}}

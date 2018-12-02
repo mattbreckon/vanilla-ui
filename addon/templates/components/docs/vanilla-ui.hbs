@@ -1,0 +1,136 @@
+{{#freestyle-section name="Vanilla UI" as |section|}}
+  {{#section.subsection name="Overview"}}
+    {{#freestyle-annotation}}
+      <code>vanilla-ui</code> follows a <strong>block</strong>, <strong>element</strong>, <strong>modifier</strong> pattern with <strong>variations</strong> (BEMv).
+    {{/freestyle-annotation}}
+  {{/section.subsection}}
+
+  {{#section.subsection name="File Organization"}}
+    {{#freestyle-note "file-organization--notes"}}
+      placeholder
+
+      ```
+      // placeholder
+      ```
+    {{/freestyle-note}}
+
+    {{freestyle-usage "file-organization" title="Files"}}
+  {{/section.subsection}}
+
+  {{#section.subsection name="Naming Conventions"}}
+    {{#freestyle-note "naming-block--notes"}}
+      A class representing a standalone class or "block" of markup.
+
+      ```
+      /* prefix */
+      none
+
+      /* example */
+      `.hand`
+      ```
+    {{/freestyle-note}}
+
+    {{#freestyle-usage "naming-block" title="Block"}}
+      <style>
+        .btn {
+          border: 1px solid $gray;
+          padding: 5px 10px;
+          cursor: pointer;
+          font-size: 12px;
+        }
+      </style>
+
+      <button class="btn">Button</button>
+    {{/freestyle-usage}}
+
+    {{#freestyle-note "naming-element--notes"}}
+      A class that lives in a related "parent" class.
+
+      ```
+      /* prefix */
+      parent class and double underscore
+
+      /* example */
+      `.hand__finger` inside of `.hand`
+      ```
+    {{/freestyle-note}}
+
+    {{#freestyle-usage "naming-element" title="Element"}}
+      <style>
+        .btn {
+          border: 1px solid $gray;
+          padding: 5px 10px;
+          cursor: pointer;
+          font-size: 12px;
+        }
+      </style>
+
+      <button class="btn">Button</button>
+    {{/freestyle-usage}}
+
+    {{#freestyle-note "naming-modifier--notes"}}
+      A class that inherits properties from another class and appends modification(s).
+
+      ```
+      /* prefix */
+      class to be modified and double hyphen
+
+      /* example */
+      `.hand--monkey` to `.hand`
+      ```
+    {{/freestyle-note}}
+
+    {{#freestyle-usage "naming-modifier" title="Modifier"}}
+      <style>
+        .btn, .btn--success {
+          border: 1px solid $gray;
+          padding: 5px 10px;
+          cursor: pointer;
+          font-size: 12px;
+        }
+
+        .btn--success {
+          background-color: green;
+          color: #fff;
+        }
+      </style>
+
+      <button class="btn--success">Success</button>
+    {{/freestyle-usage}}
+
+    {{#freestyle-note "naming-variation--notes"}}
+      A class intended to add properties to other classes.
+
+      Variations are more generic than modifiers and their use case is similar to when you would want to create a mixin.
+
+      ```
+      /* prefix */
+      parent class and single hyphen
+
+      /* example */
+      `.hand-small` to `.hand`
+      ```
+    {{/freestyle-note}}
+
+    {{#freestyle-usage "naming-variation" title="Variation"}}
+      <style>
+        .btn-small {
+          padding: 2px 5px;
+          font-size: 8px;
+        }
+
+        .btn-disabled {
+          opacity: 0.2;
+        }
+      </style>
+
+      <button class="btn">Default Button</button>
+      <button class="btn btn-small">Small Default Button</button>
+
+      <button class="btn--success">Success Button Button</button>
+      <button class="btn--success btn-small">Small Success Button Button</button>
+
+      <button class="btn--success btn-small btn-disabled">Small Disabled Success Button Button</button>
+    {{/freestyle-usage}}
+  {{/section.subsection}}
+{{/freestyle-section}}
