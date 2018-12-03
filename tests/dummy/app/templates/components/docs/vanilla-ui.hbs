@@ -1,136 +1,296 @@
 {{#freestyle-section name="Vanilla UI" as |section|}}
   {{#section.subsection name="Overview"}}
     {{#freestyle-annotation}}
-      <code>vanilla-ui</code> follows a <strong>block</strong>, <strong>element</strong>, <strong>modifier</strong> pattern with <strong>variations</strong> (BEMv).
+      <code>vanilla-ui</code> follows a BEM <strong>block</strong>, <strong>element</strong>, <strong>modifier</strong> pattern with <strong>variations</strong>.
     {{/freestyle-annotation}}
   {{/section.subsection}}
 
   {{#section.subsection name="File Organization"}}
     {{#freestyle-note "file-organization--notes"}}
-      placeholder
+      Example file organization below.
 
       ```
-      // placeholder
+      // Variables & Mixins
+      @import 'partials/modules';
+
+      // Normalize
+      @import 'partials/normalize';
+
+      // Base
+      @import 'partials/base/box-sizing';
+      @import 'partials/base/fonts';
+      @import 'partials/base/typography';
+      @import 'partials/base/lists';
+      @import 'partials/base/flex';
+
+      // Vendor
+      @import 'vendor/my-addon';
+
+      // Components
+      @import 'partials/component/ui-button';
+
+      // Helpers
+      @import 'partials/helpers';
       ```
     {{/freestyle-note}}
 
     {{freestyle-usage "file-organization" title="Files"}}
   {{/section.subsection}}
+{{/freestyle-section}}
 
-  {{#section.subsection name="Naming Conventions"}}
+{{#freestyle-section name="Naming Conventions" as |section|}}
+  {{#section.subsection name="Overview"}}
+    {{#freestyle-annotation}}
+      <p>Vanilla UI mostly follows a BEM (block, element, modifier) pattern with atomic variations and helper classes.</p>
+
+      <p>The naming convention allows developers to understand the relationship between elements and/or the purpose of a specific class from the class name alone.</p>
+    {{/freestyle-annotation}}
+  {{/section.subsection}}
+
+  {{#section.subsection name="Block"}}
     {{#freestyle-note "naming-block--notes"}}
-      A class representing a standalone class or "block" of markup.
+      #### Naming Convention
+      `.class-name`
+
+      #### Purpose
+      Add styles to an element
+
+      #### Example
 
       ```
-      /* prefix */
-      none
+      .ui-btn {
+        display: inline-block;
+        background-color: #3498db;
+        padding: 10px 25px;
+        border: 1px solid #2980b9;
+        border-radius: 3px;
+        user-select: none;
 
-      /* example */
-      `.hand`
+        font-size: 14px;
+        text-align: center;
+        text-transform: capitalize;
+        cursor: pointer;
+        color: #fff;
+      }
       ```
     {{/freestyle-note}}
 
-    {{#freestyle-usage "naming-block" title="Block"}}
-      <style>
-        .btn {
-          border: 1px solid $gray;
-          padding: 5px 10px;
-          cursor: pointer;
-          font-size: 12px;
-        }
-      </style>
-
-      <button class="btn">Button</button>
+    {{#freestyle-usage "naming-block" title="Block" usageTitle="usage"}}
+      <button class="ui-btn">Button</button>
     {{/freestyle-usage}}
+  {{/section.subsection}}
 
+  {{#section.subsection name="Element"}}
     {{#freestyle-note "naming-element--notes"}}
-      A class that lives in a related "parent" class.
+      `.class-name__element`
+
+      #### Purpose
+      Add styles to a child element of another `block` class.
+
+      #### When to Use
+      You are creating a class that is both a child of and contextually related to another `block` element.
+
+      Following this pattern you can see how `nav` and `nav__item` helps describe what the markup looks like. the purpose of the class and the relationship between the two classes.
+
+      #### Example
 
       ```
-      /* prefix */
-      parent class and double underscore
+      .ui-btn {
+        display: inline-block;
+        background-color: #3498db;
+        // ...
 
-      /* example */
-      `.hand__finger` inside of `.hand`
-      ```
-    {{/freestyle-note}}
-
-    {{#freestyle-usage "naming-element" title="Element"}}
-      <style>
-        .btn {
-          border: 1px solid $gray;
-          padding: 5px 10px;
-          cursor: pointer;
-          font-size: 12px;
-        }
-      </style>
-
-      <button class="btn">Button</button>
-    {{/freestyle-usage}}
-
-    {{#freestyle-note "naming-modifier--notes"}}
-      A class that inherits properties from another class and appends modification(s).
-
-      ```
-      /* prefix */
-      class to be modified and double hyphen
-
-      /* example */
-      `.hand--monkey` to `.hand`
-      ```
-    {{/freestyle-note}}
-
-    {{#freestyle-usage "naming-modifier" title="Modifier"}}
-      <style>
-        .btn, .btn--success {
-          border: 1px solid $gray;
-          padding: 5px 10px;
-          cursor: pointer;
-          font-size: 12px;
-        }
-
-        .btn--success {
-          background-color: green;
-          color: #fff;
-        }
-      </style>
-
-      <button class="btn--success">Success</button>
-    {{/freestyle-usage}}
-
-    {{#freestyle-note "naming-variation--notes"}}
-      A class intended to add properties to other classes.
-
-      Variations are more generic than modifiers and their use case is similar to when you would want to create a mixin.
-
-      ```
-      /* prefix */
-      parent class and single hyphen
-
-      /* example */
-      `.hand-small` to `.hand`
-      ```
-    {{/freestyle-note}}
-
-    {{#freestyle-usage "naming-variation" title="Variation"}}
-      <style>
-        .btn-small {
-          padding: 2px 5px;
+        &__subtext {
+          margin: 5px;
           font-size: 8px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
         }
+      }
 
-        .btn-disabled {
-          opacity: 0.2;
+      /* css */
+      .ui-btn {
+        display: inline-block;
+        background-color: #3498db;
+        // ...
+      }
+
+      .ui-btn__subtext {
+        margin: 5px;
+        font-size: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      ```
+    {{/freestyle-note}}
+
+    {{#freestyle-usage "naming-element" title="Element" usageTitle="usage"}}
+      <button class="ui-btn">
+        Button
+        <div class="ui-btn__subtext">Subtext</div>
+      </button>
+    {{/freestyle-usage}}
+  {{/section.subsection}}
+
+  {{#section.subsection name="Modifier"}}
+    {{#freestyle-note "naming-modifier--notes"}}
+      `.class-name--modifier`
+
+      #### Purpose
+      A class that inherits and modifies the properties of a `block` class.
+
+      #### When to Use
+      You want to create a new `block` that is a variation of another `block` class.
+
+      #### Example
+
+      ```
+      .ui-btn {
+        display: inline-block;
+        background-color: #3498db;
+        // ...
+
+        &--outline {
+          @extend .ui-btn;
+          background-color: initial;
+          color: #2980b9;
         }
-      </style>
+      }
 
-      <button class="btn">Default Button</button>
-      <button class="btn btn-small">Small Default Button</button>
+      /* css */
+      .ui-btn,
+      .ui-btn--outline {
+        display: inline-block;
+        background-color: #3498db;
+        // ...
+      }
 
-      <button class="btn--success">Success Button Button</button>
-      <button class="btn--success btn-small">Small Success Button Button</button>
+      .ui-btn--outline {
+        background-color: initial;
+        color: #2980b9;
+      }
+      ```
+    {{/freestyle-note}}
 
-      <button class="btn--success btn-small btn-disabled">Small Disabled Success Button Button</button>
+    {{#freestyle-usage "naming-modifier" title="Modifier" usageTitle="usage"}}
+      <button class="ui-btn--outline">Outline</button>
+    {{/freestyle-usage}}
+  {{/section.subsection}}
+
+  {{#section.subsection name="Variation"}}
+    {{#freestyle-note "naming-variation--notes"}}
+      `.class-name-variation`
+
+      #### Purpose
+      A class that adds/modifies properties to other `block` and `modifier` classes.
+
+      #### When to Use
+      Variations are more generic than `modifier` classes. You should think of them like atomic classes or a mixin that relates to specific `block` and `modifier` classes.
+
+      A good example of variation classes would be when you want to style variations in size or state.
+
+      For example while it might make sense to have the classes `"ui-btn"` and `"ui-btn--success"` it would make much less sense to start creating classes like this `"ui-btn"`, `"ui-btn--success"`, `"ui-btn--small"`, `"ui-btn--success--small"`.
+
+      Instead we can create atomic classes that are related to and modify the `block` or `modifier` class.
+
+      #### Example
+
+      ```
+      .ui-btn-small {
+        font-size: 10px;
+      }
+
+      .ui-btn-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      ```
+    {{/freestyle-note}}
+
+    {{#freestyle-usage "naming-variation" title="Variation" usageTitle="usage"}}
+      <button class="ui-btn">Default Button</button>
+      <button class="ui-btn ui-btn-small">Small Default Button</button>
+
+      <button class="ui-btn--outline ui-btn-small">Small Outline Button</button>
+      <button class="ui-btn--outline ui-btn-small ui-btn-disabled" disabled>Small Disabled Outline Button</button>
+    {{/freestyle-usage}}
+  {{/section.subsection}}
+
+  {{#section.subsection name="Helper"}}
+    {{#freestyle-note "naming-helper-class--notes"}}
+      `.helper-name`
+
+      #### Purpose
+      Atomic helper classes that can be used to adds/modifies properties of another `block` or `modifier` class.
+
+      #### When to Use
+      Helpers are super generic variation classes. That can be used to add specific properties to any other class.
+
+      A good example of helper-class classes would be when you want to style helper-classs in size or state.
+
+      For example while it might make sense to have the classes `"ui-btn"` and `"ui-btn--success"` it would make much less sense to start creating classes like this `"ui-btn"`, `"ui-btn--success"`, `"ui-btn--small"`, `"ui-btn--success--small"`.
+
+      Instead we can create atomic classes that are related to and modify the `block` or `modifier` class.
+
+      #### Example
+
+      ```
+      .bold {
+        text-transform: uppercase;
+      }
+
+      .invisible {
+        visibility: hidden;
+      }
+      ```
+    {{/freestyle-note}}
+
+    {{#freestyle-usage "naming-helper-class" title="Helper" usageTitle="usage"}}
+      <button class="ui-btn bold">Default Button</button>
+      <button class="ui-btn invisible">Default Button</button>
     {{/freestyle-usage}}
   {{/section.subsection}}
 {{/freestyle-section}}
+
+<style>
+  .ui-btn,
+  .ui-btn--outline {
+    display: inline-block;
+    background-color: #3498db;
+    padding: 10px 25px;
+    border: 1px solid #2980b9;
+    border-radius: 3px;
+    user-select: none;
+
+    font-size: 14px;
+    text-align: center;
+    text-transform: capitalize;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .ui-btn--outline {
+    background-color: initial;
+    color: #2980b9;
+  }
+
+  .ui-btn-small {
+    font-size: 10px;
+  }
+
+  .ui-btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .ui-btn__subtext {
+    margin-top: 5px;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  p code {
+    color: #9b59b6;
+  }
+</style>
