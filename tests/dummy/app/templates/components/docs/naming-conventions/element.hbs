@@ -1,0 +1,51 @@
+{{#section.subsection name="Element"}}
+  {{#freestyle-note "naming-element--notes"}}
+    `.class-name__element`
+
+    #### Purpose
+    Add styles to a child element of another `block` class.
+
+    #### When to Use
+    You are creating a class that is both a child of and contextually related to another `block` element.
+
+    Following this pattern you can see how `nav` and `nav__item` helps describe what the markup looks like. the purpose of the class and the relationship between the two classes.
+
+    #### Example
+
+    ```
+    .ui-btn {
+      display: inline-block;
+      background-color: #3498db;
+      // ...
+
+      &__subtext {
+        margin: 5px;
+        font-size: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+
+    /* css */
+    .ui-btn {
+      display: inline-block;
+      background-color: #3498db;
+      // ...
+    }
+
+    .ui-btn__subtext {
+      margin: 5px;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    ```
+  {{/freestyle-note}}
+
+  {{#freestyle-usage "naming-element" title="Element" usageTitle="usage"}}
+    <button class="ui-btn">
+      Button
+      <div class="ui-btn__subtext">Subtext</div>
+    </button>
+  {{/freestyle-usage}}
+{{/section.subsection}}
