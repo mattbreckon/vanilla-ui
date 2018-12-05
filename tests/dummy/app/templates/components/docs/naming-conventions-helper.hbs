@@ -1,0 +1,34 @@
+{{#section.subsection name="Helper"}}
+  {{#freestyle-note "naming-helper-class--notes"}}
+    `.helper-name`
+
+    #### Purpose
+    Atomic helper classes that can be used to adds/modifies properties of another `block` or `modifier` class.
+
+    #### When to Use
+    Helpers are super generic variation classes. That can be used to add specific properties to any other class.
+
+    A good example of helper-class classes would be when you want to style helper-classs in size or state.
+
+    For example while it might make sense to have the classes `"ui-btn"` and `"ui-btn--success"` it would make much less sense to start creating classes like this `"ui-btn"`, `"ui-btn--success"`, `"ui-btn--small"`, `"ui-btn--success--small"`.
+
+    Instead we can create atomic classes that are related to and modify the `block` or `modifier` class.
+
+    #### Example
+
+    ```
+    .bold {
+      text-transform: uppercase;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    ```
+  {{/freestyle-note}}
+
+  {{#freestyle-usage "naming-helper-class" title="Helper" usageTitle="usage"}}
+    <button class="ui-btn bold">Default Button</button>
+    <button class="ui-btn invisible">Default Button</button>
+  {{/freestyle-usage}}
+{{/section.subsection}}

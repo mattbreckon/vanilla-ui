@@ -1,0 +1,44 @@
+{{#section.subsection name="Modifier"}}
+  {{#freestyle-note "naming-modifier--notes"}}
+    `.class-name--modifier`
+
+    #### Purpose
+    A class that inherits and modifies the properties of a `block` class.
+
+    #### When to Use
+    You want to create a new `block` that is a variation of another `block` class.
+
+    #### Example
+
+    ```
+    .ui-btn {
+      display: inline-block;
+      background-color: #3498db;
+      // ...
+
+      &--outline {
+        @extend .ui-btn;
+        background-color: initial;
+        color: #2980b9;
+      }
+    }
+
+    /* css */
+    .ui-btn,
+    .ui-btn--outline {
+      display: inline-block;
+      background-color: #3498db;
+      // ...
+    }
+
+    .ui-btn--outline {
+      background-color: initial;
+      color: #2980b9;
+    }
+    ```
+  {{/freestyle-note}}
+
+  {{#freestyle-usage "naming-modifier" title="Modifier" usageTitle="usage"}}
+    <button class="ui-btn--outline">Outline</button>
+  {{/freestyle-usage}}
+{{/section.subsection}}

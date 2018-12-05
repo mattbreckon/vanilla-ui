@@ -1,0 +1,58 @@
+{{#freestyle-section name="Naming Conventions" as |section|}}
+  {{#section.subsection name="Overview"}}
+    {{#freestyle-annotation}}
+      <p>Vanilla UI mostly follows a BEM (block, element, modifier) pattern with atomic variations and helper classes.</p>
+
+      <p>The naming convention allows developers to understand the relationship between elements and/or the purpose of a specific class from the class name alone.</p>
+    {{/freestyle-annotation}}
+  {{/section.subsection}}
+
+  {{docs/naming-conventions-block section=section}}
+  {{docs/naming-conventions-element section=section}}
+  {{docs/naming-conventions-modifier section=section}}
+  {{docs/naming-conventions-variation section=section}}
+  {{docs/naming-conventions-helper section=section}}
+{{/freestyle-section}}
+
+<style>
+  .ui-btn,
+  .ui-btn--outline {
+    display: inline-block;
+    background-color: #3498db;
+    padding: 10px 25px;
+    border: 1px solid #2980b9;
+    border-radius: 3px;
+    user-select: none;
+
+    font-size: 14px;
+    text-align: center;
+    text-transform: capitalize;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .ui-btn--outline {
+    background-color: initial;
+    color: #2980b9;
+  }
+
+  .ui-btn-small {
+    font-size: 10px;
+  }
+
+  .ui-btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .ui-btn__subtext {
+    margin-top: 5px;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  p code {
+    color: #9b59b6;
+  }
+</style>
