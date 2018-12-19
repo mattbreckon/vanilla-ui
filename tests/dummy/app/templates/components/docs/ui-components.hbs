@@ -1,11 +1,10 @@
 {{#freestyle-section name="Components" as |section|}}
   {{#section.subsection name="Lists"}}
-    {{#freestyle-dynamic
-      "ui-list"
+    {{#freestyle-dynamic "ui-list"
       dynamicProperties=dynamicProperties
       title="ui-list"
       componentName="ui-list"
-    as |dynamic|
+      as |dynamic|
     }}
       {{#ui-list
         theme=dynamic.theme
